@@ -3,3 +3,5 @@ geocoder
 psycopg2
 tkhtmlview
 pandas
+geopy
+
