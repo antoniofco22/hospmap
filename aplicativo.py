@@ -31,7 +31,8 @@ def calcular_distancia_haversine(coord1, coord2):
 
 def plotar_mapa():
     cont = 0
-    html_content = ""
+    # Use "navy" for the background color (dark blue)
+    html_content = '<html><head></head><body style="background-color: navy;">'
     localizacoes_proximas = locationsdistancia()
     for loc in localizacoes_proximas:
         latitude1, longitude1 = loc[4], loc[5]
@@ -48,8 +49,10 @@ def plotar_mapa():
         temp_map_file = "temp_map_" + str(cont) + ".html"
         mapa.save(temp_map_file)
         nome = loc[0]
-        html_content += "<a href='temp_map_" + str(cont) + ".html'>Vá para o " + str(nome) + "</a><br>"
+        html_content += "<a href='temp_map_" + str(cont) + ".html' style='color: black;'>Vá para o " + str(nome) + "</a><br>"
         cont += 1
+    html_content += '</body></html>'
+
     my_label = HTMLLabel(janela, html=html_content)
     my_label.pack(pady=20, padx=20)
 
